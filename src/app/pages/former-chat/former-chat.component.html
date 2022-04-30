@@ -1,0 +1,34 @@
+<nb-layout>
+    <nb-layout-column >
+    <nb-chat title="prof" size="medium" status="success">
+      <nb-chat-message *ngFor="let message of messages"
+                       [type]="message.type"
+                       [message]="message.text"
+                       [reply]="!message.reply"
+                       [sender]="message.user.name"
+                       [date]="message.date"
+                       [files]="message.files"
+                       [quote]="message.quote"
+                       [latitude]="message.latitude"
+                       [longitude]="message.longitude"
+                       [avatar]="message.user.avatar"></nb-chat-message>
+      <nb-chat-form (send)="sendMessage($event, 'prof', 'https://i.gifer.com/no.gif', false)" [showButton]="false" [dropFiles]="true">
+      </nb-chat-form>
+    </nb-chat>
+    <nb-chat title="mehdi" size="medium" status="warning">
+      <nb-chat-message *ngFor="let message of messages"
+                       [type]="message.type"
+                       [message]="message.text"
+                       [reply]="message.reply"
+                       [sender]="message.user.name"
+                       [date]="message.date"
+                       [files]="message.files"
+                       [quote]="message.quote"
+                       [latitude]="message.latitude"
+                       [longitude]="message.longitude"
+                       [avatar]="message.user.avatar"></nb-chat-message>
+      <nb-chat-form (send)="sendMessage($event, 'mehdi', 'http://www.reactiongifs.com/r/wnd1.gif', true)" [showButton]="false" [dropFiles]="true">
+      </nb-chat-form>
+    </nb-chat>
+    </nb-layout-column>
+    </nb-layout>
